@@ -1,0 +1,14 @@
+﻿@using MovieDatabase.Models 
+@model Movie
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+    <h4>Спасибо за ваш голос :)</h4>
+    <form method="post" action="">
+        <input type="hidden" value="@ViewBag.MovieId" name="MovieId" />
+        <input type="submit" value="Продолжить" />
+    </form>
+</div>

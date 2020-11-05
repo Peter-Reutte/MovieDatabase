@@ -1,0 +1,42 @@
+﻿@using MovieDatabase.Models
+@model Movie
+
+@{
+    ViewBag.Title = "О фильме";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<fieldset>
+    <legend>Информация о фильме</legend>
+
+    <div class="display-label"><b>Название</b></div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Title)
+    </div>
+    <p></p>
+    <div class="display-label"><b>Дата выхода в прокат</b></div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Date)
+    </div>
+    <p></p>
+    <div class="display-label"><b>О фильме</b></div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.AboutMovie)
+    </div>
+    <p></p>
+    <div class="display-label"><b>Актеры</b></div>
+    <ul>
+        @foreach (Actor a in Model.Actors)
+        {
+            <li>@Html.ActionLink(a.Name, "ActorDetails", new { id = a.Id })</li>
+        }
+    </ul>
+    <p></p>
+    <div class="display-label"><b>Рейтинг фильма</b></div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Rating)
+    </div>
+    <div>
+        @Html.ActionLink("Проголосовать", "VoteMovie", new { id = Model.Id })
+    </div>
+</fieldset>

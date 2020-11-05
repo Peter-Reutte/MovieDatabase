@@ -1,0 +1,32 @@
+﻿@model IEnumerable<MovieDatabase.Models.Actor>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.ActionLink("Имя", "ActorsList", new { sortOrder = ViewBag.NameSortParm })
+        </th>
+        <th>
+            @Html.ActionLink("Рейтинг", "ActorsList", new { sortOrder = ViewBag.RatingActorsSortParm })
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name) 
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rating)
+            </td>
+            <td>
+                @Html.ActionLink("Об актере", "ActorDetails", new { id = item.Id })
+            </td>
+        </tr>
+    }
+</table>
