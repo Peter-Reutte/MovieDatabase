@@ -11,6 +11,7 @@ namespace MovieDatabase.Controllers
     {
         MovieContext db = new MovieContext();
 
+        // Вывести список фильмов, включая сортировки по полям - "название", "дата", "рейтинг"
         public ActionResult Index(string sortOrder)
         {
             ViewBag.TitleSortParm = String.IsNullOrEmpty(sortOrder) ? "title_desc" : "";
@@ -40,9 +41,9 @@ namespace MovieDatabase.Controllers
                     break;
             }
             return View(movies.ToList());
-            //return View(db.Movies.ToList());
         }
 
+        // Вывести детали о выбранном фильме
         public ActionResult MovieDetails(int id = 0)
         {
             Movie movie = db.Movies.Find(id);
@@ -52,6 +53,7 @@ namespace MovieDatabase.Controllers
             }
             return View(movie);
         }
+
         // проголосовать за фильм
         [HttpGet]
         public ActionResult VoteMovie(int id)
@@ -87,7 +89,7 @@ namespace MovieDatabase.Controllers
 
 
 
-        // Вывести список актеров
+        // Вывести список актеров, включая сортировку по полям - "имя" и "рейтинг"
         public ActionResult ActorsList(string sortOrder)
         {
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";

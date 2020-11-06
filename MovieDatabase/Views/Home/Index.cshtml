@@ -1,4 +1,6 @@
-﻿@model IEnumerable<MovieDatabase.Models.Movie>
+﻿@*Вывести список фильмов*@
+
+@model IEnumerable<MovieDatabase.Models.Movie>
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -32,7 +34,7 @@
                 @Html.DisplayFor(modelItem => item.Rating)
             </td>
             <td>
-                @Html.ActionLink("Подробнее о фильме", "MovieDetails", new { id = item.Id }) 
+                @Html.ActionLink("Подробнее о фильме", "MovieDetails", new { id = item.Id })
             </td>
         </tr>
     }

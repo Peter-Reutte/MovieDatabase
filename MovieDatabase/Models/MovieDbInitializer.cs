@@ -6,6 +6,7 @@ using System.Data.Entity;
 
 namespace MovieDatabase.Models
 {
+    // Инициализируем базу данных начальными значениями при каждом запуске проекта
     public class MovieDbInitializer : DropCreateDatabaseAlways<MovieContext>
     {
         protected override void Seed(MovieContext context)

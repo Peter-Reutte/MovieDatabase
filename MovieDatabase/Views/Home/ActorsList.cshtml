@@ -1,4 +1,6 @@
-﻿@model IEnumerable<MovieDatabase.Models.Actor>
+﻿@*Вывести список актеров*@
+
+@model IEnumerable<MovieDatabase.Models.Actor>
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -20,7 +22,7 @@
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Name) 
+                @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Rating)
